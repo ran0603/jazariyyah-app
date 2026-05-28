@@ -4,7 +4,7 @@ export default function StudyPanel({ selectedLine }) {
   if (!selectedLine) return null;
 
   return (
-    <div className="w-[450px] bg-white border-l border-stone-200 shadow-2xl overflow-y-auto">
+    <div className="w-1/2 bg-white border-l border-stone-200 shadow-2xl overflow-y-auto">
       <div className="bg-amber-50 p-6 border-b border-amber-100">
         <h3 className="font-bold text-amber-900 text-lg">Deep Study</h3>
         <p className="text-amber-800 text-sm">Verse Analysis</p>
@@ -18,11 +18,14 @@ export default function StudyPanel({ selectedLine }) {
           <p className="text-stone-600 leading-relaxed italic">{selectedLine.translation}</p>
         </div>
 
+        {/* Detailed HTML Explanation */}
         <div>
-          <h4 className="font-semibold text-emerald-900 mb-2 flex items-center gap-2">
-            <BookOpen className="w-4 h-4" /> Explanation
-          </h4>
-          <p className="text-stone-600 leading-relaxed">{selectedLine.explanation}</p>
+          <h4 className="font-semibold text-emerald-900 mb-2 flex items-center gap-2"><BookOpen className="w-4 h-4" /> Explanation</h4>
+          {/* This is where the HTML is rendered safely */}
+          <div
+            className="text-stone-600 leading-relaxed prose prose-sm prose-emerald max-w-none"
+            dangerouslySetInnerHTML={{ __html: selectedLine.explanation }}
+          />
         </div>
 
         <div>

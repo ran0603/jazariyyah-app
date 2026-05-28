@@ -12,6 +12,7 @@ export default function MainView({ currentChapter, setSelectedLine }) {
             onClick={() => setSelectedLine(line)}
             className="cursor-pointer bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:border-amber-400 transition-all transform hover:-translate-y-1"
           >
+            <p className="text-right mb-2 text-stone-500">{line.id}</p>
             <p className="text-2xl font-serif text-right text-stone-800" dir="rtl">{line.arabic}</p>
           </div>
         ))}
